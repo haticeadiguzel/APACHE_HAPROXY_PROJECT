@@ -1,0 +1,17 @@
+version: '3'
+services:
+  apache1:
+    image: httpd:2.4
+    volumes:
+      - ./apache1:/usr/local/apache2/htdocs
+  apache2:
+    image: httpd:2.4
+    volumes:
+      - ./apache2:/usr/local/apache2/htdocs
+  haproxy:
+    image: haproxy:latest
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+    ports:
+      - "80:80"
+
